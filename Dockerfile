@@ -1,6 +1,13 @@
 FROM ghcr.io/moyangking/astrbot-lagrange-docker:main
 
 EXPOSE 6185
+EXPOSE 8000
+
+ENV BASE_URL=https://generativelanguage.googleapis.com/v1beta
+ENV TOOLS_CODE_EXECUTION_ENABLED=false
+ENV IMAGE_MODELS='["gemini-2.0-flash"]'
+ENV SEARCH_MODELS='["gemini-2.0-flash"]'
+
 
 ARG APP_HOME=/app
 
@@ -26,11 +33,20 @@ COPY requirements1.txt .
 
 RUN pip install --no-cache-dir -r requirements1.txt
 
-ADD launch.sh launch.sh
-ADD supervisord.conf supervisord.conf
-RUN curl -JLO  https://github.com/bincooo/SillyTavern-Docker/releases/download/v1.0.0/git-batch
-RUN chmod +x launch.sh && chmod +x git-batch
+# 确保文件正确复制到容器中
+COPY launch.sh /app/launch.sh
+COPY supervisord.conf /app/supervisord.conf
+RUN curl -JLO https://github.com/bincooo/SillyTavern-Docker/releases/download/v1.0.0/git-batch
 
+# 确保文件具有正确的执行权限
+RUN chmod +x /app/launch.sh && chmod +x /app/git-batch
+
+# 确保目录权限正确
 RUN chmod -R 777 ${APP_HOME}
-# 修改成先执行环境设置，再执行初始化
+
+# 可以添加一个验证步骤，确保文件存在
+RUN ls -la /app/launch.sh
+
+RUN sed -i 's/\r$//' /app/launch.sh
+
 CMD ["/usr/bin/supervisord", "-c", "/app/supervisord.conf"]
