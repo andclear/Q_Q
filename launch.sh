@@ -3,7 +3,7 @@
 BASE=/app
 
 # 需要管理的目标文件和文件夹列表
-TARGETS="appsettings.json data device.json keystore.json lagrange-0-db qr-0.png"
+TARGETS="appsettings.json data device.json keystore.json lagrange-0-db qr-0.png astrbot dashboard packages"
 
 env() {
   if [ ! -z "${fetch}" ]; then
