@@ -20,7 +20,7 @@ RUN if [ ! -z "${PIP_PACKAGES}" ]; then pip install ${PIP_PACKAGES}; fi
 
 WORKDIR ${APP_HOME}
 
-COPY ./gemini /app/gemini
+COPY ./app /app/app
 
 COPY requirements1.txt .
 
