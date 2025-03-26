@@ -20,6 +20,12 @@ RUN if [ ! -z "${PIP_PACKAGES}" ]; then pip install ${PIP_PACKAGES}; fi
 
 WORKDIR ${APP_HOME}
 
+COPY ./gemini /app/gemini
+
+COPY requirements1.txt .
+
+RUN pip install --no-cache-dir -r requirements1.txt
+
 ADD launch.sh launch.sh
 ADD supervisord.conf supervisord.conf
 RUN curl -JLO  https://github.com/bincooo/SillyTavern-Docker/releases/download/v1.0.0/git-batch
