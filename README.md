@@ -1,13 +1,9 @@
 ---
-title: Astrbot
-emoji: 📊
+title: Lpb-Bot
+emoji: 🐧
 colorFrom: gray
-colorTo: blue
+colorTo: gray
 sdk: docker
 pinned: false
 app_port: 6185
 ---
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
-
-使用huggingface白嫖机器人的项目
