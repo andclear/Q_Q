@@ -9,3 +9,6 @@ uvicorn
 google-genai
 jinja2
 python-multipart
+markitdown
+nh3
+faiss-cpu
