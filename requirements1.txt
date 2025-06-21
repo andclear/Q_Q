@@ -12,3 +12,4 @@ python-multipart
 markitdown
 nh3
 faiss-cpu
+pymilvus
