@@ -1,4 +1,4 @@
-FROM ghcr.io/moyangking/astrbot-lagrange-docker:main
+FROM ghcr.io/andclear/t_t:main
 
 EXPOSE 6185
 EXPOSE 8000
