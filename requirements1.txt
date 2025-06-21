@@ -19,3 +19,4 @@ pymupdf
 pymupdf4llm
 pillow
 tqdm
+lunardate
