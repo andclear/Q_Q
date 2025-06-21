@@ -9,7 +9,13 @@ uvicorn
 google-genai
 jinja2
 python-multipart
-markitdown
+markitdown[all]
 nh3
 faiss-cpu
 pymilvus
+pdf-to-markdown[async_sync_env]
+numpy
+pymupdf
+pymupdf4llm
+pillow
+tqdm
